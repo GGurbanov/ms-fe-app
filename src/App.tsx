@@ -1,26 +1,36 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  Navbar,
+  Nav,
+  NavItem
+} from 'reactstrap';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import MainModule from './submodules/mainPage';
+import PaymentsModule from './submodules/payments';
+import SalaryModule from './submodules/salary';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <Router>
+        <Navbar color="dark" dark expand="md">
+          <Link to="/">MS in Frontend</Link>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <Link to="/salary">Salary</Link>
+            </NavItem>
+            <NavItem>
+              <Link style={{ marginLeft: "20px" }} to="/payments">Payments</Link>
+            </NavItem>
+          </Nav>
+        </Navbar>
+
+        <Route path="/" exact component={MainModule} />
+        <Route path="/payments" exact component={PaymentsModule} />
+        <Route path="/salary" exact component={SalaryModule} />
+      </Router>
+  )
+};
 
 export default App;
