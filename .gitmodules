@@ -4,3 +4,6 @@
 [submodule "src/submodules/salary"]
 	path = src/submodules/salary
 	url = git@github.com:GGurbanov/ms-fe-salary.git
+[submodule "src/submodules/mainPage"]
+	path = src/submodules/mainPage
+	url = git@github.com:GGurbanov/ms-fe-main-page.git
